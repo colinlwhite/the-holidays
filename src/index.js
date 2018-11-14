@@ -1,5 +1,11 @@
 // import $ from 'jquery';
 import 'bootstrap';
+import createNavbar from './components/Navbar/navbar';
 import './index.scss';
 
-console.log('its working');
+
+const intitializeApp = () => {
+  createNavbar();
+};
+
+intitializeApp();
