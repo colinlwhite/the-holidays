@@ -1,0 +1,47 @@
+{
+	"friend1": {
+		"name": "Callan M.",
+		"address": "1 Main Street, Nashville, TN 37209",
+		"phoneNumber": "1111111111",
+		"email": "callan@yomamma.com",
+		"relationship": "sister from anotha mother",
+		"isAvoiding": true,
+		"uid": "12345"
+	},
+	"friend2": {
+		"name": "Lauren R.",
+		"address": "2 Main Street, Nashville, TN 37209",
+		"phoneNumber": "2222222222",
+		"email": "lauren@yomamma.com",
+		"relationship": "work wife",
+		"isAvoiding": false,
+		"uid": "12345"
+	},
+	"friend3": {
+		"name": "Santa Claws",
+		"address": "3 Main Street, Nashville, TN 37209",
+		"phoneNumber": "3333333333",
+		"email": "santa@yomamma.com",
+		"relationship": "Nope, nope, nope",
+		"isAvoiding": true,
+		"uid": "12345"
+	},
+	"friend4": {
+		"name": "Other Adam",
+		"address": "4 Main Street, Nashville, TN 37209",
+		"phoneNumber": "4444444444",
+		"email": "other@yomamma.com",
+		"relationship": "2nd best adam",
+		"isAvoiding": false,
+		"uid": "12345"
+	},
+	"friend5": {
+		"name": "Holiday Armidillo",
+		"address": "5 Main Street, Nashville, TN 37209",
+		"phoneNumber": "5555555555",
+		"email": "armidillo@yomamma.com",
+		"relationship": "Bringing joy to all the children",
+		"isAvoiding": false,
+		"uid": "67890"
+	}
+} 
