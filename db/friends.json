@@ -1,0 +1,47 @@
+{
+	"friend1": {
+		"name": "Kurt Key",
+		"address": "1 Main Street, Nashville, TN 37209",
+		"phoneNumber": "1111111111",
+		"email": "callan@yomamma.com",
+		"relationship": "sister from anotha mother",
+		"isAvoiding": true,
+		"uid": "VsoDFBiZp3YEbRTgu3fymPEqey32"
+	},
+	"friend2": {
+		"name": "Aaron Ayers",
+		"address": "2 Main Street, Nashville, TN 37209",
+		"phoneNumber": "2222222222",
+		"email": "lauren@yomamma.com",
+		"relationship": "work wife",
+		"isAvoiding": false,
+		"uid": "VsoDFBiZp3YEbRTgu3fymPEqey32"
+	},
+	"friend3": {
+		"name": "Drew O'neal",
+		"address": "3 Main Street, Nashville, TN 37209",
+		"phoneNumber": "3333333333",
+		"email": "santa@yomamma.com",
+		"relationship": "Nope, nope, nope",
+		"isAvoiding": true,
+		"uid": "VsoDFBiZp3YEbRTgu3fymPEqey32"
+	},
+	"friend4": {
+		"name": "Aaron Posey",
+		"address": "4 Main Street, Nashville, TN 37209",
+		"phoneNumber": "4444444444",
+		"email": "other@yomamma.com",
+		"relationship": "2nd best adam",
+		"isAvoiding": false,
+		"uid": "VsoDFBiZp3YEbRTgu3fymPEqey32"
+	},
+	"friend5": {
+		"name": "Tommy White",
+		"address": "5 Main Street, Nashville, TN 37209",
+		"phoneNumber": "5555555555",
+		"email": "armidillo@yomamma.com",
+		"relationship": "Bringing joy to all the children",
+		"isAvoiding": false,
+		"uid": "67890"
+	}
+} 
