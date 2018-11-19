@@ -9,7 +9,7 @@
     },
     "hf3": {
       "holidayId": "holiday1",
-      "friendId": ["friend1", "friend2", "friend3"]
+      "friendId": "friend3"
     },
     "hf4": {
       "holidayId": "holiday3",
