@@ -11,7 +11,7 @@ const printSingleFriend = (friend) => {
         <p>${friend.address}</p>
         <p>${friend.email}</p>
         <p>${friend.phoneNumber}</p>
-        <button class="btn btn-danger delete-btn">X</button>
+        <button class="btn btn-danger delete-btn" data-delete-id=${friend.id}>X</button>
     </div>
     `;
   $('#single-container').html(friendString);
@@ -39,15 +39,19 @@ const buildDropdown = (friendsArray) => {
     Pick a Friend
   </button>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">`;
-  friendsArray.forEach((friend) => {
-    dropdown += `<div class="dropdown-item" data-dropdown-id=${friend.id}>${friend.name}</div>`;
-  });
+  if (friendsArray.length) {
+    friendsArray.forEach((friend) => {
+      dropdown += `<div class="dropdown-item get-single" data-dropdown-id=${friend.id}>${friend.name}</div>`;
+    });
+  } else {
+    dropdown += '<div class="dropdown-item">You have no friends</div>';
+  }
   dropdown += '</div></div>';
   $('#dropdown-container').html(dropdown);
 };
 
 const friendsPage = () => {
-  const uid = authHelpers.getCurrentUid();
+  const uid = authHelpers.getCurrentUid(); // unclear
   axios.get(`${apiKeys.firebaseKeys.databaseURL}/friends.json?orderBy="uid"&equalTo="${uid}"`)
     .then((results) => {
       const friendsObject = results.data;
@@ -65,8 +69,22 @@ const friendsPage = () => {
     });
 };
 
+const deleteFriend = (e) => {
+  // firebase id
+  const idToDelete = e.target.dataset.deleteId;
+  axios.delete(`${apiKeys.firebaseKeys.databaseURL}/friends/${idToDelete}.json`) // the .delete is deleting the button we clicked on
+    .then(() => {
+      friendsPage(); // refreshes the firebase data with the deleted person
+      $('#single-container').html(''); // clearing out the div
+    })
+    .catch((error) => {
+      console.log('error in deleting friend', error);
+    });
+};
+
 const bindEvents = () => {
-  $('body').on('click', '.dropdown-item', getSingleFriend);
+  $('body').on('click', '.get-single', getSingleFriend);
+  $('body').on('click', '.delete-btn', deleteFriend);
 };
 
 const initializeFriendsPage = () => {
