@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import authHelpers from '../../helpers/authHelpers';
+import friendsData from '../../helpers/data/friendsData';
+import initializeFriendsPage from '../FriendsPage/friendsPage';
 
 const formBuilder = () => {
   const form = `
@@ -37,7 +39,30 @@ const gettingFriendFromForm = () => {
     isAvoiding: false,
     uid: authHelpers.getCurrentUid(),
   };
-  console.log(friend);
+  return friend;
 };
 
-export default { formBuilder, gettingFriendFromForm };
+const buildAddForm = () => {
+  let domString = '<h2>Add New Friend</h2>';
+  domString += formBuilder();
+  domString += '<button id="add-friend">Save New Friend</button>';
+  $('#add-edit-friend').html(domString).show();
+  $('#friends').hide();
+};
+
+const addNewFriend = () => {
+  const newFriend = gettingFriendFromForm();
+  friendsData.addNewFriend(newFriend)
+    .then(() => {
+      $('#add-edit-friend').html('').hide();
+      $('#friends').show();
+      initializeFriendsPage();
+    })
+    .catch((error) => {
+      console.log('error', error);
+    });
+};
+
+$('body').on('click', '#add-friend', addNewFriend);
+
+export default buildAddForm;
