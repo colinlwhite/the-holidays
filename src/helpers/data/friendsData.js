@@ -33,11 +33,11 @@ const getSingleFriend = friendId => new Promise((resolve, reject) => {
     });
 });
 
-const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId}.json`);
+const deleteFriend = friendId => axios.delete(`${firebaseUrl}/friends/${friendId}.json`); // DELETE
 
-const addNewFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, JSON.stringify(friendObject));
+const addNewFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, JSON.stringify(friendObject)); // CREATE
 
-const updateFriend = (friendObject, friendId) => axios.put(`${firebaseUrl}/friends/${friendId}.json`, JSON.stringify(friendObject));
+const updateFriend = (friendObject, friendId) => axios.put(`${firebaseUrl}/friends/${friendId}.json`, JSON.stringify(friendObject)); // UPDATE OR EDIT
 
 export default {
   getAllFriends,
