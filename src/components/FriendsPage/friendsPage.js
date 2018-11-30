@@ -75,7 +75,7 @@ const buildDropdown = (friendsArray) => {
 };
 
 const friendsPage = () => {
-  const uid = authHelpers.getCurrentUid(); // unclear
+  const uid = authHelpers.getCurrentUid(); // 
   friendsData.getAllFriends(uid)
     .then((friendsArray) => {
       buildDropdown(friendsArray);
@@ -100,7 +100,7 @@ const deleteFriend = (e) => {
 
 const updateIsAvoiding = (e) => {
   const friendId = e.target.id;
-  const isAvoiding = e.target.checked;
+  const isAvoiding = e.target.checked; // true or flase boolean
   friendsData.updatedIsAvoiding(friendId, isAvoiding)
     .then(() => {
       console.log('something');
