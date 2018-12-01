@@ -5,13 +5,14 @@ const firebaseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getAllFriends = uid => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/friends.json?orderBy="uid"&equalTo="${uid}"`)
-    .then((results) => {
-      const friendsObject = results.data;
+    .then((results) => { // results is a parameter so technically you could name it anything
+      const friendsObject = results.data; // Assigning the firebase object to a variable
+      console.log(friendsObject); // already has the data, including the ID
       const friendsArray = [];
       if (friendsObject != null) {
         Object.keys(friendsObject).forEach((friendId) => {
-          friendsObject[friendId].id = friendId;
-          friendsArray.push(friendsObject[friendId]);
+          friendsObject[friendId].id = friendId; // Moving the ID into the object
+          friendsArray.push(friendsObject[friendId]); // we're pushing a whole object onto the array
         });
       }
       resolve(friendsArray);
@@ -24,8 +25,8 @@ const getAllFriends = uid => new Promise((resolve, reject) => {
 const getSingleFriend = friendId => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/friends/${friendId}.json`)
     .then((result) => {
-      const singleFriend = result.data; // coming from FIREBase
-      singleFriend.id = friendId; // attaching a new key or ID to the data
+      const singleFriend = result.data;
+      singleFriend.id = friendId; // creating a name/key(right side) on an object
       resolve(singleFriend);
     })
     .catch((error) => {
@@ -39,7 +40,9 @@ const addNewFriend = friendObject => axios.post(`${firebaseUrl}/friends.json`, J
 
 const updateFriend = (friendObject, friendId) => axios.put(`${firebaseUrl}/friends/${friendId}.json`, JSON.stringify(friendObject)); // UPDATE OR EDIT
 
-const updatedIsAvoiding = (friendId, isAvoiding) => axios.patch(`${firebaseUrl}/friends/${friendId}.json`, { isAvoiding });
+const updatedIsAvoiding = (friendId, isAvoiding) => {
+  axios.patch(`${firebaseUrl}/friends/${friendId}.json`, { isAvoiding });
+};
 
 export default {
   getAllFriends,
