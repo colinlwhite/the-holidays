@@ -75,7 +75,7 @@ const buildDropdown = (friendsArray) => {
 };
 
 const friendsPage = () => {
-  const uid = authHelpers.getCurrentUid(); // 
+  const uid = authHelpers.getCurrentUid(); //
   friendsData.getAllFriends(uid)
     .then((friendsArray) => {
       buildDropdown(friendsArray);

@@ -12,7 +12,7 @@ const getAllFriends = uid => new Promise((resolve, reject) => {
       if (friendsObject != null) {
         Object.keys(friendsObject).forEach((friendId) => {
           friendsObject[friendId].id = friendId; // Moving the ID into the object
-          friendsArray.push(friendsObject[friendId]); // Each time we're pushing an entire object onto the array
+          friendsArray.push(friendsObject[friendId]); // we're pushing a whole object onto the array
         });
       }
       resolve(friendsArray);
@@ -25,7 +25,7 @@ const getAllFriends = uid => new Promise((resolve, reject) => {
 const getSingleFriend = friendId => new Promise((resolve, reject) => {
   axios.get(`${firebaseUrl}/friends/${friendId}.json`)
     .then((result) => {
-      const singleFriend = result.data; 
+      const singleFriend = result.data;
       singleFriend.id = friendId; // creating a name/key(right side) on an object
       resolve(singleFriend);
     })
@@ -42,7 +42,7 @@ const updateFriend = (friendObject, friendId) => axios.put(`${firebaseUrl}/frien
 
 const updatedIsAvoiding = (friendId, isAvoiding) => {
   axios.patch(`${firebaseUrl}/friends/${friendId}.json`, { isAvoiding });
-}
+};
 
 export default {
   getAllFriends,
